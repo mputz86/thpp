@@ -30,7 +30,7 @@ fi
 rm -rf googletest-release-1.7.0 googletest-release-1.7.0.zip
 curl -JLOk https://github.com/google/googletest/archive/release-1.7.0.zip
 if [[ $($SHA -b googletest-release-1.7.0.zip | cut -d' ' -f1) != \
-      '49f589fafbb1d426c3290ace581cc977c89d7597' ]]; then
+      'f89bc9f55477df2fde082481e2d709bfafdb057b' ]]; then
   echo "Invalid googletest-release-1.7.0.zip file" >&2
   exit 1
 fi
