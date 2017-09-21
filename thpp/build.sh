@@ -16,13 +16,16 @@ if [[ ! -r ./Tensor.h ]]; then
 fi
 
 rm -rf gtest-1.7.0 gtest-1.7.0.zip
-curl -JLO https://googletest.googlecode.com/files/gtest-1.7.0.zip
+curl -JLOk https://github.com/google/googletest/archive/release-1.7.0.zip
+mv googletest-release-1.7.0.zip gtest-1.7.0.zip
+
 if [[ $(sha1sum -b gtest-1.7.0.zip | cut -d' ' -f1) != \
-      'f85f6d2481e2c6c4a18539e391aa4ea8ab0394af' ]]; then
-  echo "Invalid gtest-1.7.0.zip file" >&2
+      'f89bc9f55477df2fde082481e2d709bfafdb057b' ]]; then
+  echo "Invalid gtest-1.7.0.zip" >&2
   exit 1
 fi
 unzip gtest-1.7.0.zip
+mv googletest-release-1.7.0 gtest-1.7.0
 
 # Build in a separate directory
 mkdir -p build
